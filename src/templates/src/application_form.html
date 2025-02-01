@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTIBYAN School Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #321fab;">
+    <div class="container mt-5">
+        <div class="card shadow p-4 w-75 mx-auto" style="border-radius: 10px;">
+            <div class="text-center mb-3">
+                <img src="{% static 'src/images/logo.png' %}" alt="ATTIBYAN School Logo" class="img-fluid" style="max-width: 150px;">
+            </div>
+            <h2 class="text-center" style="color: #0d6efd;">Application Form</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="full_name" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="text" name="phone" class="form-control" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Date of Birth</label>
+                                    <input type="date" name="dob" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Gender</label>
+                                    <select name="gender" class="form-select">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Class Category</label>
+                            <select name="category" class="form-select">
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label">Compulsory Courses</label><br>
+                                <input type="checkbox" name="compulsory_courses" value="fiqh" checked disabled> Fiqh <br>
+                                <input type="checkbox" name="compulsory_courses" value="hadith" checked disabled> Hadith <br>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Optional Courses</label><br>
+                                <input type="checkbox" name="optional_courses" value="quran"> Qur'an<br>
+                                <input type="checkbox" name="optional_courses" value="tarbiya"> Tarbiya<br>
+                                <input type="checkbox" name="optional_courses" value="tawhid"> Tawhid<br>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Preferred Study Time</label>
+                            <input type="text" name="preferred_time" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Why do you want to join?</label>
+                            <textarea name="motivation" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Profile Picture</label>
+                                    <input type="file" name="profile_picture" class="form-control">
+                                </div>
+                            </div>
+              
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
